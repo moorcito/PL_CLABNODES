@@ -11,7 +11,6 @@ pipeline {
 		stage('SETUP: Base configuration') {
 			steps {
 				ansiblePlaybook 
-					become: true, 
 					credentialsId: 'jaime_default', 
 					disableHostKeyChecking: true, 
 					extras: 'role=role-base', 
@@ -24,7 +23,6 @@ pipeline {
 		stage('SETUP: Docker daemon') {
 			steps {
 				ansiblePlaybook 
-					become: true, 
 					credentialsId: 'jaime_default', 
 					disableHostKeyChecking: true, 
 					extras: 'role=role-docker', 
@@ -37,7 +35,6 @@ pipeline {
 		stage('DEPLOY: Docker containers') {
 			steps {
 				ansiblePlaybook 
-					become: true, 
 					credentialsId: 'jaime_default', 
 					disableHostKeyChecking: true, 
 					extras: 'role=role-deploy-containers', 
