@@ -3,8 +3,7 @@ pipeline {
 	stages {
 		stage('Ansible pre configuration') {
 			steps {
-				//TODO: Generate playbook
-				//TODO: Generate inventory
+				echo "ANSIBLE"
 
 			}
 		}
