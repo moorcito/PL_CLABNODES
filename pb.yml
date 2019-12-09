@@ -1,0 +1,14 @@
+---
+- hosts: all
+  gather_facts: yes
+  become: true
+  become_user: root
+  pre_tasks:        
+  roles:
+    - {{ role }}
+  post_tasks:
+  - name: Restart netdata
+    systemd:
+      name: netdata
+      state: restarted
+      enabled: true

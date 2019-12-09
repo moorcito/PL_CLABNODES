@@ -1,0 +1,27 @@
+all:
+  children:
+    ovh:
+      hosts:
+        jnavarro:
+          ansible_host: jnavarro.site
+          ansible_user: root
+    homelab:
+      hosts:
+        pi:
+          ansible_host: 10.0.0.99
+        valentin:
+          ansible_host: 10.0.0.100
+        emilia:
+          ansible_host: 10.0.0.101
+        maria:
+          ansible_host: 10.0.0.102
+      vars:
+        ansible_user: jaime
+    vbox:
+      hosts:
+        ubuntu1:
+          ansible_host: 10.0.1.35
+        ubuntu2:
+          ansible_host: 10.0.1.36
+      vars: 
+        ansible_user: jaime
