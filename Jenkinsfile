@@ -10,37 +10,19 @@ pipeline {
 		}
 		stage('SETUP: Base configuration') {
 			steps {
-				ansiblePlaybook 
-					credentialsId: 'jaime_default', 
-					disableHostKeyChecking: true, 
-					extras: 'role=role-base', 
-					inventory: 'inventory.yml', 
-					limit: "${targets}", 
-					playbook: 'pb.yml'
+				ansiblePlaybook credentialsId: 'jaime_default', disableHostKeyChecking: true, extras: 'role=role-base', inventory: 'inventory.yml', limit: "${targets}", playbook: 'pb.yml'
 				
 			}
 		}
 		stage('SETUP: Docker daemon') {
 			steps {
-				ansiblePlaybook 
-					credentialsId: 'jaime_default', 
-					disableHostKeyChecking: true, 
-					extras: 'role=role-docker', 
-					inventory: 'inventory.yml', 
-					limit: "${targets}", 
-					playbook: 'pb.yml'
+				ansiblePlaybook credentialsId: 'jaime_default', disableHostKeyChecking: true, extras: 'role=role-docker', inventory: 'inventory.yml', limit: "${targets}", playbook: 'pb.yml'
 				
 			}
 		}
 		stage('DEPLOY: Docker containers') {
 			steps {
-				ansiblePlaybook 
-					credentialsId: 'jaime_default', 
-					disableHostKeyChecking: true, 
-					extras: 'role=role-deploy-containers', 
-					inventory: 'inventory.yml', 
-					limit: "${targets}", 
-					playbook: 'pb.yml'
+				ansiblePlaybook credentialsId: 'jaime_default', disableHostKeyChecking: true, extras: 'role=role-deploy-containers', inventory: 'inventory.yml', limit: "${targets}", playbook: 'pb.yml'
 				
 			}
 		}
