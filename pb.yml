@@ -5,7 +5,7 @@
   become_user: root
   pre_tasks:        
   roles:
-    - {{ role }}
+    - role-base
   post_tasks:
   - name: Restart netdata
     systemd:
