@@ -13,6 +13,7 @@ pipeline {
 		}
 		stage('SETUP: Base configuration') {
 			steps {
+				sh "pwd && ls -l"
 				ansiblePlaybook credentialsId: 'jaime_default', disableHostKeyChecking: true, extras: 'role=role-base', inventory: 'inventory.yml', limit: "${targets}", playbook: 'pb.yml'
 				
 			}
