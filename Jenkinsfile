@@ -4,6 +4,8 @@ pipeline {
 		stage('Ansible pre configuration') {
 			steps {
 				echo "ANSIBLE"
+				git 'https://github.com/moorcito/role-base.git'
+				sh "pwd && ls -l"
 
 			}
 		}
